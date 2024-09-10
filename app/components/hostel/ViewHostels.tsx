@@ -243,7 +243,7 @@ const ViewHostels: React.FC = () => {
       if (!profileId || !token) throw new Error("Authentication error");
 
       const hostelResponse = await axios.get(
-        `http://localhost:5000/api/hostels/${profileId}/hostels`,
+        `https://hostelproject-backend-coed.onrender.com/api/hostels/${profileId}/hostels`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -254,7 +254,7 @@ const ViewHostels: React.FC = () => {
         try {
           const token = localStorage.getItem("token");
           const imageResponse = await axios.get(
-            `http://localhost:5000/api/hostels/gethostalphotos/${hostel._id}`,
+            `https://hostelproject-backend-coed.onrender.com/api/hostels/gethostalphotos/${hostel._id}`,
             { headers: { Authorization: `Bearer ${token}` } }
           );
           setHostels((prevHostels) =>
@@ -342,7 +342,7 @@ const ViewHostels: React.FC = () => {
       if (!token) throw new Error("Authentication error");
 
       const response = await axios.put(
-        `http://localhost:5000/api/hostels/update-hostel`,
+        `https://hostelproject-backend-coed.onrender.com/api/hostels/update-hostel`,
         formData,
         {
           headers: {
@@ -373,7 +373,7 @@ const ViewHostels: React.FC = () => {
       if (!profileId || !token) throw new Error("Authentication error");
 
       await axios.delete(
-        `hthttp://localhost:5000/api/hostels/delete/${id}`,
+        `https://hostelproject-backend-coed.onrender.com/api/hostels/delete/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -558,16 +558,23 @@ const ViewHostels: React.FC = () => {
               label="Images"
               fullWidth
               type="file"
+
               onChange={(e) => {
-                if (`e.target.files`) {
+                const target = e.target as HTMLInputElement; // Type assertion
+                const files = target.files;
+              
+                if (files && files.length > 0) {
                   setUpdateData((prevData) => ({
                     ...prevData,
                     images: [
-                      `...prevData.images, ...Array.from(e.target.files)`,
+                      ...prevData.images, // Existing images
+                      ...Array.from(files), // New files added from the file input
                     ],
                   }));
                 }
               }}
+              
+              
               margin="normal"
               variant="outlined"
               inputProps={{ multiple: true }}

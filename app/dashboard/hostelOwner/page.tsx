@@ -154,15 +154,31 @@ const HostelOwnerDashboard: React.FC = () => {
       setConfirmPassword("");
       setSnackbarMessage("Password changed successfully");
       setSnackbarOpen(true);
-    } catch (error) {
+    } 
+
+
+
+
+    catch (error) {
+      // Log the error for debugging purposes
       console.error("Error verifying OTP and changing password:", error);
-      setOtpError(
-        `error.response?.data?.message ` ||
-          "Failed to change password. Please check your OTP and try again."
-      );
+    
+      // Determine the error message to set
+      let errorMessage = "Failed to change password. Please check your OTP and try again.";
+    
+      // Check if error has a response property and is in the expected format
+      if (error && (error as any).response && (error as any).response.data) {
+        errorMessage = (error as any).response.data.message || errorMessage;
+      }
+    
+      // Set the error state
+      setOtpError(errorMessage);
+    
     } finally {
+      // Ensure loading state is set to false
       setIsLoading(false);
     }
+    
   };
 
   useEffect(() => {
@@ -180,7 +196,7 @@ const HostelOwnerDashboard: React.FC = () => {
       const fetchOwnerHostels = async () => {
         try {
           const response = await fetch(
-            `htthttps://hostelproject-backend-coed.onrender.com/api/hostels/${profileId}/hostels`,
+            `https://hostelproject-backend-coed.onrender.com/api/hostels/${profileId}/hostels`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
