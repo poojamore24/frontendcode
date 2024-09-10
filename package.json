@@ -1,12 +1,14 @@
 {
-  "name": "dashboard",
+  "name": "frondend",
   "version": "0.1.0",
   "private": false,
   "scripts": {
     "dev": "next dev -p 3001",
     "start": "next start -p 3001",
+  
+    "lint": "next lint", "prebuild": "echo 'Starting build...'",
     "build": "next build",
-    "lint": "next lint"
+    "postbuild": "echo 'Build finished.'"
   },
   "dependencies": {
     "@ant-design/plots": "^2.2.5",
