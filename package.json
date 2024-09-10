@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next dev -p 3001",
     "start": "next start -p 3001",
-  
-    "lint": "next lint", "prebuild": "echo 'Starting build...'",
+    "lint": "next lint",
+    "prebuild": "echo 'Starting build...'",
     "build": "next build",
     "postbuild": "echo 'Build finished.'"
   },
