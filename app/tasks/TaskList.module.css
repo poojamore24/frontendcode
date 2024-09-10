@@ -1,0 +1,92 @@
+TaskList.module.css .taskCard {
+  background-color: #1f2937; /* Dark blue-gray background */
+  color: #ffffff; /* White text color */
+  border-radius: 8px;
+  border: 2px solid aqua;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow transition */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
+}
+
+.taskCard:hover {
+  transform: translateY(-4px); /* Lift card on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nameBadge {
+  background-color: #4a5568; /* Dark gray background for name badge */
+  color: #ffffff; /* White text color */
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.title {
+  font-size: 18px;
+  margin-top: 12px;
+}
+
+.itemList {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 8px;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #374151; /* Darker border between items */
+}
+
+.listItem:last-child {
+  border-bottom: none; /* Remove border on last item */
+}
+
+.buttonContainer {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between; /* Align buttons with space between them */
+}
+
+.button {
+  cursor: pointer;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease; /* Added color transition */
+}
+
+.button:hover {
+  opacity: 0.9; /* Slightly reduce opacity on hover */
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3), 0 0 8px rgba(0, 0, 0, 0.2); /* Add glow effect on hover */
+}
+
+.approveButton {
+  background-color: #48bb78; /* Green approve button */
+  color: #ffffff;
+}
+
+.unapproveButton {
+  background-color: #f56565; /* Red unapprove button */
+  color: #ffffff;
+}
+
+.verifyAllButton {
+  background-color: #3182ce; /* Blue verify all button */
+  color: #ffffff;
+}
+
+.unverifyAllButton {
+  background-color: #ecc94b; /* Yellow unverify all button */
+  color: #ffffff;
+}
