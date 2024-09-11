@@ -132,7 +132,7 @@ const Navbar: React.FC = () => {
     if (token && id && userRole === "student") {
       try {
         const response = await fetch(
-          `http://lohttps://hostelproject-backend-coed.onrender.comcalhost:5000/api/students/wishlist/${id}`,
+          `https://hostelproject-backend-coed.onrender.comcalhost:5000/api/students/wishlist/${id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

@@ -104,7 +104,7 @@ const UserProfile: React.FC<UserProfileProps> = ({
 
       // Fetch user data
       const response = await axios.get<ProfileData>(
-        `https://hostelproject-backend-coed.onrender.comhttp://localhost:5000/api/students/${profileId}`,
+        `https://hostelproject-backend-coed.onrender.com/api/students/${profileId}`,
         config
       );
       setProfileData(response.data);
