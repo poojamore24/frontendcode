@@ -87,7 +87,7 @@ const Roles: React.FC = () => {
       const promises = groupedRoles.map(async (role) => {
         try {
           const permissionsResponse = await axios.get(
-            `http://localhost:5000/api/admin/permissions/${role.name}`,
+            `https://hostelproject-backend-coed.onrender.com/api/admin/permissions/${role.name}`,
             {
               headers: { Authorization: `Bearer ${token}` },
             }
@@ -126,7 +126,7 @@ const Roles: React.FC = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:5000/api/admin/assign-group-to-role",
+        "https://hostelproject-backend-coed.onrender.com/api/admin/assign-group-to-role",
         {
           role: role,
           groupIds: [groupId],
@@ -147,7 +147,7 @@ const Roles: React.FC = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "hhttp://localhost:5000/api/admin/roles",
+        "https://hostelproject-backend-coed.onrender.com/api/admin/roles",
         {
           name: newRoleName,
           description: newRoleDescription,
@@ -175,7 +175,7 @@ const Roles: React.FC = () => {
         try {
           const token = localStorage.getItem("token");
           await axios.delete(
-            `http://localhost:5000/api/admin/roles/${roleToDelete}`,
+            `https://hostelproject-backend-coed.onrender.com/api/admin/roles/${roleToDelete}`,
             {
               headers: { Authorization: `Bearer ${token}` },
             }
@@ -197,7 +197,7 @@ const Roles: React.FC = () => {
 
       // Send the delete request to the server
       await axios.post(
-        "http://localhost:5000/api/admin/remove-permission-from-role",
+        "https://hostelproject-backend-coed.onrender.com/api/admin/remove-permission-from-role",
         {
           role: role, // This is already a string, so no change needed here
           permissionId: groupId,
@@ -283,7 +283,7 @@ const Roles: React.FC = () => {
 
       // Send the update to the server
       const response = await axios.put(
-        "http://localhost:5000/api/admin/update-role-permissions",
+        "https://hostelproject-backend-coed.onrender.com/api/admin/update-role-permissions",
         {
           role: role,
           permissionId: permissionId,
