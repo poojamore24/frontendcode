@@ -60,7 +60,7 @@ const Roles: React.FC = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get<Group[]>(
-        "http://localhost:5000/api/admin/groups",
+        "https://hostelproject-backend-coed.onrender.com/api/admin/groups",
         {
           headers: { Authorization: `Bearer ${token}` },
         }

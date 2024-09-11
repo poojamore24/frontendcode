@@ -157,7 +157,7 @@ export default function WishlistPage() {
     if (!profileId) return;
     try {
       const response = await axios.get(
-        `hhttps://hostelproject-backend-coed.onrender.com/api/students/${profileId}`,
+        `https://hostelproject-backend-coed.onrender.com/api/students/${profileId}`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
@@ -218,7 +218,7 @@ export default function WishlistPage() {
     }
     try {
       await axios.post(
-        "hthttps://hostelproject-backend-coed.onrender.com/api/students/wishlist/submit",
+        "https://hostelproject-backend-coed.onrender.com/api/students/wishlist/submit",
         {},
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
